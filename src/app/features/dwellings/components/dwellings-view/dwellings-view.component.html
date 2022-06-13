@@ -1,0 +1,9 @@
+<ng-template #loading>
+  Loading...
+</ng-template>
+<ng-container *ngIf="state.loaded else loading">
+  <h1>{{state.data.name}}</h1>
+  <p>{{state.data.description}}</p>
+
+  <button (click)="onClick()">Reload Data</button>
+</ng-container>

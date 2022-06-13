@@ -1,0 +1,3 @@
+<ng-container *ngIf="state$ | async as data">
+  <app-dwellings-view [state]="data" (reload)="loadData()"></app-dwellings-view>
+</ng-container>
