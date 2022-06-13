@@ -14,17 +14,16 @@ export class DwellingsContainerComponent implements OnInit {
 
   state$: Observable<DwellingsState>;
 
-  constructor(private store: Store<DwellingsState>) {
+  constructor(private store: Store<DwellingsState>) { // inject the Store
   }
 
   ngOnInit(): void {
-    this.state$ = this.store.select(dwellingsSelector);
-    this.loadData()
+    this.state$ = this.store.select(dwellingsSelector); // subscribe to the selector using async pipe in template
+    this.loadData();
   }
 
   loadData(): void {
-    this.store.dispatch(loadDwellings());
-
+    this.store.dispatch(loadDwellings()); // dispatch the loadDwellings action
   }
 
 }

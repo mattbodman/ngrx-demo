@@ -19,10 +19,10 @@ import {DwellingsEffects} from './features/dwellings/store/dwellings.effect';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    StoreModule.forRoot({router: routerReducer, dwellings: dwellingsReducer}),
-    EffectsModule.forRoot([DwellingsEffects]),
-    StoreRouterConnectingModule.forRoot(),
-    StoreDevtoolsModule.instrument()
+    StoreModule.forRoot({router: routerReducer, dwellings: dwellingsReducer}), // register the Store for the application
+    EffectsModule.forRoot([DwellingsEffects]), // register Effects
+    StoreRouterConnectingModule.forRoot(),  // optional, add the router store
+    StoreDevtoolsModule.instrument({name: 'NGRX Demo'})  // add and configure the Devtools
   ],
   providers: [],
   bootstrap: [AppComponent]

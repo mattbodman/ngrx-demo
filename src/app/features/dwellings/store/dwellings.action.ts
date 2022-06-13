@@ -1,6 +1,6 @@
 import {createAction, props} from '@ngrx/store';
-import {HttpParams} from '@angular/common/http';
 
+// define an action for each step
 export const loadDwellings = createAction(
   '[Dwellings] Load',
 );

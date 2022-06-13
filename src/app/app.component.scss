@@ -1,9 +1,10 @@
 .menu {
+  padding: 10px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: start;
 
-  &>button {
+  & > button {
     margin: 6px;
   }
 }

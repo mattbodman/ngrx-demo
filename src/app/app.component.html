@@ -1,3 +1,38 @@
+<div style="background-color: aliceblue;padding: 20px;">
+  <p>
+    This application demonstrates one way data flow using NGRX. With the Redux Devtools extension for Chrome installed,
+    click the "Dwellings" button below to initiate the data flow. Here is a list of the steps performed:
+  </p>
+  <ol>
+    <li>"Dwellings" button changes the URL via a [routerLink] directive.</li>
+    <li>The root router detects "/dwellings" and lazy-loads the DwellingsModule</li>
+    <li>DwellingsModule router loads the DwellingsContainerComponent</li>
+    <li><strong>Action</strong>
+    </li>
+    <ul>
+      <li>DwellingsContainerComponent imports the NGRX Store and dispatches the "loadDwellings" action</li>
+    </ul>
+    <li><strong>Effect</strong></li>
+    <ul>
+      <li>The DwellingsEffects detects the "loadDwellings" action and calls the getDwellings method on the API service
+      </li>
+      <li>The response from the API is passed to the loadDwellingsSuccess action</li>
+    </ul>
+    <li><strong>Reducer</strong></li>
+    <ul>
+      <li>The dwellingReducer detects the loadDwellingsSuccess action and creates a copy of the state. It then
+        adds the API response data to the state.
+      </li>
+    </ul>
+    <li><strong>Selector</strong></li>
+    <ul>
+      <li>The dwellingSelector selects the "slice" of state that pertains to the dwelling data</li>
+    </ul>
+    <li>The DwellingsContainerComponent passes the state to a dumb, view component which renders the state</li>
+    <li>A "Reload Data" button on the dumb component emits an event which notifies the DwellingsContainerComponent. This
+      triggers a reload of the data, effectively going back to <strong>Step 4</strong></li>
+  </ol>
+</div>
 <div class="menu">
   <button [routerLink]="['']">Home</button>
   <button [routerLink]="['dwellings']">Dwellings</button>
